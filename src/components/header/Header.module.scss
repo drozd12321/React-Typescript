@@ -1,36 +1,59 @@
-.img {
-  margin-left: 20px;
-  width: 40px;
-}
 .head {
   background-color: rgb(244, 248, 248);
+  width: 100%;
+  border-radius: 10px;
 }
 .container {
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
   gap: 20px;
   padding: 10px;
   h1 {
     font-size: 28px;
     margin: 0;
+    text-transform: uppercase;
+  }
+  .img {
+    margin-left: 20px;
+    width: 40px;
   }
   span {
-    font-size: 13x;
+    font-size: 13px;
     color: gray;
+  }
+  .separator {
+    width: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    height: 20px;
+  }
+
+  .left {
+    display: flex;
+    gap: 20px;
   }
   .splitBtn {
     display: flex;
     align-items: center;
     border: none;
-    background-color: orange;
     border-radius: 10px;
     color: white;
     padding: 10px 15px;
     font-size: 20px;
+    background-color: rgb(241, 128, 35);
+    span {
+      color: white;
+      font-size: 18px;
+    }
   }
   .BtnIcon {
     margin-left: 5px;
     height: auto;
+  }
+  .btnDiv {
+    margin-left: auto;
   }
 }
