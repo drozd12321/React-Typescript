@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Category.module.scss";
+import Sort from "../sort/Sort";
 const Category = () => {
   return (
     <div className={styles.category}>
@@ -9,6 +10,9 @@ const Category = () => {
       <div className={styles.item}>Гриль</div>
       <div className={styles.item}>Острые</div>
       <div className={styles.item}>Закрытые</div>
+      <div className={styles.item}>
+        <Sort />
+      </div>
     </div>
   );
 };

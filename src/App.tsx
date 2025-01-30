@@ -11,7 +11,9 @@ function App() {
   return (
     <div className={styles.app}>
       <Header />
-      <Category />
+      <div className={styles.content}>
+        <Category />
+      </div>
     </div>
   );
 }

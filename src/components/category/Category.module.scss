@@ -2,16 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 70%;
   .item {
     text-align: center;
     margin-top: 10px;
     background-color: rgb(240, 240, 240);
     border-radius: 15px;
-    padding: 20px;
+    padding: 13px;
     flex-grow: 0.95;
     flex-shrink: 0.95;
     gap: 10px;
     margin-right: 15px;
+    font-size: 13px;
   }
   .item:first-child {
     margin-left: 10px;
