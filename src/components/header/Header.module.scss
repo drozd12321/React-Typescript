@@ -1,0 +1,36 @@
+.img {
+  margin-left: 20px;
+  width: 40px;
+}
+.head {
+  background-color: rgb(244, 248, 248);
+}
+.container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 10px;
+  h1 {
+    font-size: 28px;
+    margin: 0;
+  }
+  span {
+    font-size: 13x;
+    color: gray;
+  }
+  .splitBtn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+  .BtnIcon {
+    margin-left: 5px;
+    height: auto;
+  }
+}
