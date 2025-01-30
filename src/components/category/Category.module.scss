@@ -1,0 +1,22 @@
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .item {
+    text-align: center;
+    margin-top: 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 15px;
+    padding: 20px;
+    flex-grow: 0.95;
+    flex-shrink: 0.95;
+    gap: 10px;
+    margin-right: 15px;
+  }
+  .item:first-child {
+    margin-left: 10px;
+  }
+  .item:last-child {
+    margin-right: 10px;
+  }
+}
