@@ -1,0 +1,14 @@
+.sort {
+  display: flex;
+  justify-content: space-around;
+
+  select {
+    appearance: none;
+    background-color: transparent;
+    width: 59px;
+    margin-left: 2px;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}
