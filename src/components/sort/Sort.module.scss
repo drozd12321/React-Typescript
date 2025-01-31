@@ -1,14 +1,20 @@
 .sort {
   display: flex;
   justify-content: space-around;
-
+  font-size: 16px;
   select {
     appearance: none;
     background-color: transparent;
-    width: 59px;
+    width: 40%;
+    padding: 0;
+    border: none;
     margin-left: 2px;
-    border: 1px solid black;
-    border-radius: 6px;
     cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+  }
+  select:hover {
+    color: rgb(241, 128, 35);
+    border-bottom: 2px solid rgb(241, 128, 35);
   }
 }

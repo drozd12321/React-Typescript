@@ -6,3 +6,4 @@ export const category: string[] = [
   "Острые",
   "Закрытые",
 ];
+export const sorting: string[] = ["Популярности", "Цене", "Алфафиту"];

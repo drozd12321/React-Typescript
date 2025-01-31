@@ -4,15 +4,17 @@ import Sort from "../sort/Sort";
 import { category } from "../../data/data";
 const Category = () => {
   return (
-    <div className={styles.category}>
-      {category.map((categ, index) => {
-        return (
-          <div key={index} className={styles.item}>
-            {categ}
-          </div>
-        );
-      })}
-      <div className={styles.item}>
+    <div className={styles.cont}>
+      <div className={styles.category}>
+        {category.map((categ, index) => {
+          return (
+            <div key={index} className={styles.item}>
+              {categ}
+            </div>
+          );
+        })}
+      </div>
+      <div className={styles.sort}>
         <Sort />
       </div>
     </div>
