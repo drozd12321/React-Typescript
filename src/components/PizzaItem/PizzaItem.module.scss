@@ -1,0 +1,11 @@
+.containerPizza {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  .pizzaImg {
+    margin-top: 20px;
+    img {
+      height: 90px;
+    }
+  }
+}

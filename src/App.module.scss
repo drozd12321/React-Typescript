@@ -4,12 +4,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  min-height: 100%;
 }
 .app {
   margin-top: 40px;
   background-color: white;
   border-radius: 10px;
-  height: 90vh;
   width: 85vw;
   position: relative;
 }

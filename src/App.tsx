@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import styles from "./App.module.scss";
 import Header from "./components/header/Header";
 import Category from "./components/category/Category";
+import Pizza from "./components/Pizza/Pizza";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +14,9 @@ function App() {
       <Header />
       <div className={styles.content}>
         <Category />
+      </div>
+      <div>
+        <Pizza />
       </div>
     </div>
   );
