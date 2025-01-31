@@ -8,20 +8,34 @@ const PizzaItem = () => {
         <img src={logo} alt="" />
         <p>Информация о пице</p>
       </div>
-      <div>
-        <div>
-          <span>тонкая</span>
-          <span>традиционная</span>
+      <div className={styles.charcter}>
+        <div className={styles.item}>
+          <div className={`${styles.itemChld} ${styles.active}`}>
+            <span>тонкая</span>
+          </div>
+          <div className={styles.itemChld}>
+            <span>традиционная</span>
+          </div>
         </div>
-        <div>
-          <span>25</span>
-          <span>30</span>
-          <span>40</span>
+        <div className={styles.size}>
+          <div className={`${styles.sizeChld} ${styles.active}`}>
+            <span>25</span>
+          </div>
+          <div className={styles.sizeChld}>
+            <span>30</span>
+          </div>
+          <div className={styles.sizeChld}>
+            <span>40</span>
+          </div>
         </div>
       </div>
-      <div>
-        <span>Цена</span>
-        <span>Добавить</span>
+      <div className={styles.check}>
+        <div className={styles.checkChld}>
+          <span>Цена</span>
+        </div>
+        <div className={`${styles.checkChld} ${styles.active}`}>
+          <span>Добавить</span>
+        </div>
       </div>
     </div>
   );

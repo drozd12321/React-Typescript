@@ -15,9 +15,7 @@ function App() {
       <div className={styles.content}>
         <Category />
       </div>
-      <div>
-        <Pizza />
-      </div>
+      <Pizza />
     </div>
   );
 }
