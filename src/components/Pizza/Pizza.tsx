@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PizzaItem from "../PizzaItem/PizzaItem";
 import styles from "./Pizza.module.scss";
 const Pizza = () => {
