@@ -16,6 +16,8 @@ const Pizza = () => {
       <PizzaItem />
       <PizzaItem />
       <PizzaItem />
+      <PizzaItem />
+      <PizzaItem />
     </div>
   );
 };
