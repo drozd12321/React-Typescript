@@ -1,11 +1,11 @@
 import React from "react";
 import logo from "../../assets/react.svg";
 import styles from "./PizzaItem.module.scss";
-const PizzaItem = () => {
+const PizzaItem = ({ props }) => {
   return (
     <div className={styles.containerPizza}>
       <div className={styles.pizzaImg}>
-        <img src={logo} alt="" />
+        <img src={props.image_url} alt="" />
         <p>Информация о пице</p>
       </div>
       <div className={styles.charcter}>
