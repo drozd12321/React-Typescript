@@ -6,8 +6,6 @@ import { useSelector, UseSelector } from "react-redux";
 import { selectedPrice } from "../../redux/priceSlice";
 const Header = () => {
   const state = useSelector(selectedPrice);
-  console.log(state);
-
   return (
     <header className={styles.head}>
       <div className={styles.container}>
