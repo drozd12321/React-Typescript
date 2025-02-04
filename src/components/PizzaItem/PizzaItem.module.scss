@@ -76,4 +76,9 @@
     background-color: rgb(241, 128, 35);
     color: white;
   }
+  .notAlow {
+    cursor: not-allowed;
+    color: gray;
+    pointer-events: none;
+  }
 }

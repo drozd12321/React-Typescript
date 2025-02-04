@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import priseSlice from "./priseSlice";
+import priseSlice from "./priceSlice.ts";
 
 const store = configureStore({
   reducer: {

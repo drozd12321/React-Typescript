@@ -10,3 +10,7 @@ export interface PizzaItemProps {
   sizes: sizes;
   types: number[];
 }
+export interface PriceState {
+  favoritesPizza: PizzaItemProps[];
+  totalPrice: number;
+}

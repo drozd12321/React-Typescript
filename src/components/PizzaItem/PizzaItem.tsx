@@ -4,12 +4,14 @@ import styles from "./PizzaItem.module.scss";
 import { PizzaItemProps } from "../interfaces/interface";
 import { MyContext } from "../../data/Context";
 import { TYPE } from "../../data/data";
+import { useDispatch } from "react-redux";
+import { setPrice } from "../../redux/priceSlice";
 const PizzaItem: React.FC<PizzaItemProps> = (props) => {
   const [count, setCount] = useState<number>(0);
   const context = useContext(MyContext)?.data;
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedType, setSelectedType] = useState<number | null>(null);
-
+  const dispatch = useDispatch();
   function handleSizeSelected(size: string) {
     setSelectedSize(size);
   }
@@ -18,7 +20,10 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
   }
   function handleCountPizza() {
     setCount(count + 1);
-    console.log(count);
+    if (selectedSize) {
+      const price = Number(props.sizes[selectedSize].replace("₽", ""));
+      dispatch(setPrice(price));
+    }
   }
   return (
     <div className={styles.containerPizza}>
@@ -62,7 +67,7 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
         </div>
         <div
           className={`${styles.checkChld} ${count ? styles.active : ""}`}
-          onClick={() => handleCountPizza()}
+          onClick={selectedSize ? () => handleCountPizza() : () => {}}
         >
           <span>Добавить </span>
           <span>{count === 0 ? "" : count}</span>
