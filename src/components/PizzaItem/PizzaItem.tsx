@@ -1,21 +1,22 @@
 import React from "react";
-import logo from "../../assets/react.svg";
+import { type } from "../../data/data";
 import styles from "./PizzaItem.module.scss";
-const PizzaItem = ({ props }) => {
+import { PizzaItemProps } from "../interfaces/interface";
+const PizzaItem: React.FC<PizzaItemProps> = (props) => {
   return (
     <div className={styles.containerPizza}>
       <div className={styles.pizzaImg}>
         <img src={props.image_url} alt="" />
-        <p>Информация о пице</p>
+        <p>{props.name}</p>
       </div>
       <div className={styles.charcter}>
         <div className={styles.item}>
-          <div className={`${styles.itemChld} ${styles.active}`}>
+          {/* <div className={`${styles.itemChld} ${styles.active}`}>
             <span>тонкая</span>
           </div>
           <div className={styles.itemChld}>
             <span>традиционная</span>
-          </div>
+          </div> */}
         </div>
         <div className={styles.size}>
           <div className={`${styles.sizeChld} ${styles.active}`}>
