@@ -16,7 +16,10 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
   function handleTypePizza(type: number) {
     setSelectedType(type);
   }
-  console.log(selectedSize);
+  function handleCountPizza() {
+    setCount(count + 1);
+    console.log(count);
+  }
   return (
     <div className={styles.containerPizza}>
       <div className={styles.pizzaImg}>
@@ -57,8 +60,12 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
             {selectedSize ? props.sizes[selectedSize].replace("₽", "") : 0}
           </span>
         </div>
-        <div className={`${styles.checkChld}`}>
-          <span>Добавить {count === 0 ? "" : count}</span>
+        <div
+          className={`${styles.checkChld} ${count ? styles.active : ""}`}
+          onClick={() => handleCountPizza()}
+        >
+          <span>Добавить </span>
+          <span>{count === 0 ? "" : count}</span>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0;
+  cursor: pointer;
   .sort {
     width: 60%;
     text-align: center;
@@ -29,5 +30,10 @@
   }
   .item:first-child {
     margin-left: 10px;
+  }
+  .active {
+    width: 100%;
+    background-color: rgb(190, 184, 129);
+    color: white;
   }
 }
