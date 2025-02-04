@@ -30,11 +30,12 @@
     .item {
       display: flex;
       gap: 5px;
-
       width: 100%;
       height: 100%;
+      display: flex;
+      justify-content: center;
       .itemChld {
-        width: 50%;
+        flex: 1;
         padding: 10px;
         border-radius: 10px;
         box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);

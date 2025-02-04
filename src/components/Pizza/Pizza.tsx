@@ -4,7 +4,6 @@ import styles from "./Pizza.module.scss";
 import { MyContext } from "../../data/Context";
 const Pizza = () => {
   const data = useContext(MyContext);
-  console.log(data);
   return (
     <div className={styles.pizzaInfo}>
       {data?.data.map((pz, ind) => (

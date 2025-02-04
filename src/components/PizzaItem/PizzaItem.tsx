@@ -1,8 +1,12 @@
 import React from "react";
-import { type } from "../../data/data";
+import { useContext } from "react";
 import styles from "./PizzaItem.module.scss";
 import { PizzaItemProps } from "../interfaces/interface";
+import { MyContext } from "../../data/Context";
+import { TYPE } from "../../data/data";
 const PizzaItem: React.FC<PizzaItemProps> = (props) => {
+  const context = useContext(MyContext)?.data;
+  console.log(context);
   return (
     <div className={styles.containerPizza}>
       <div className={styles.pizzaImg}>
@@ -11,23 +15,18 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
       </div>
       <div className={styles.charcter}>
         <div className={styles.item}>
-          {/* <div className={`${styles.itemChld} ${styles.active}`}>
-            <span>тонкая</span>
-          </div>
-          <div className={styles.itemChld}>
-            <span>традиционная</span>
-          </div> */}
+          {props.types.map((typ, ind) => (
+            <div key={ind} className={`${styles.itemChld} `}>
+              <span>{TYPE[typ]}</span>
+            </div>
+          ))}
         </div>
         <div className={styles.size}>
-          <div className={`${styles.sizeChld} ${styles.active}`}>
-            <span>25</span>
-          </div>
-          <div className={styles.sizeChld}>
-            <span>30</span>
-          </div>
-          <div className={styles.sizeChld}>
-            <span>40</span>
-          </div>
+          {Object.entries(props.sizes).map(([key, size]) => (
+            <div key={key} className={`${styles.sizeChld}`}>
+              <span>{key}</span>
+            </div>
+          ))}
         </div>
       </div>
       <div className={styles.check}>

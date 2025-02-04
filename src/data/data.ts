@@ -7,4 +7,5 @@ export const category: string[] = [
   "Закрытые",
 ];
 export const sorting: string[] = ["Популярности", "Цене", "Алфафиту"];
-export const type: string[] = ["тонкая", "традиционная"];
+export const TYPE: string[] = ["тонкая", "традиционная"];
+export type TypeValues = (typeof TYPE)[number];
