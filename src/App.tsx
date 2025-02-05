@@ -6,26 +6,17 @@ import Header from "./components/header/Header";
 import Category from "./components/category/Category";
 import Pizza from "./components/Pizza/Pizza";
 import { MyContext } from "./data/Context";
+import { PizzaItemProps } from "./components/interfaces/interface";
+import CartFavorites from "./components/CartFavorites/CartFavorites";
 function App() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://e44567109e5642cf.mokky.dev/items"
-        ).then((respons) => respons.json());
-        setData(response);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
-  }, []);
+  const [favorite, setFavorite] = useState(false);
+  const [data, setData] = useState<PizzaItemProps[]>([]);
+
   return (
-    <MyContext.Provider value={{ data }}>
-      <div className={styles.app}>
+    <MyContext.Provider value={{ favorite, setFavorite }}>
+      <div className={`${styles.app} ${favorite ? styles.active : ""}`}>
         <Header />
+        {favorite ? <CartFavorites /> : ""}
         <div className={styles.content}>
           <Category />
         </div>

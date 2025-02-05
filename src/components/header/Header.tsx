@@ -1,11 +1,17 @@
-import React from "react";
 import { SlBasket } from "react-icons/sl";
+import { useSelector } from "react-redux";
+import { selectedPrice } from "../../redux/priceSlice";
+import { useContext } from "react";
 import pizzaLogo from "../../assets/img/pizza-logo.svg";
 import styles from "./Header.module.scss";
-import { useSelector, UseSelector } from "react-redux";
-import { selectedPrice } from "../../redux/priceSlice";
+import { MyContext } from "../../data/Context";
 const Header = () => {
   const state = useSelector(selectedPrice);
+  const { favorite } = useContext(MyContext);
+  const { setFavorite } = useContext(MyContext);
+  function handleCartFavorite() {
+    setFavorite(!favorite);
+  }
   return (
     <header className={styles.head}>
       <div className={styles.container}>
@@ -24,7 +30,12 @@ const Header = () => {
             <span className={styles.separator}></span>
             <span>
               {" "}
-              <SlBasket className={styles.BtnIcon} />
+              <SlBasket
+                onClick={() => {
+                  handleCartFavorite();
+                }}
+                className={styles.BtnIcon}
+              />
             </span>
           </button>
         </div>

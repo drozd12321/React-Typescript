@@ -1,5 +1,6 @@
 import { createContext } from "react";
-interface ContextType {
-  data: any[];
-}
-export const MyContext = createContext<ContextType | null>(null);
+import { ContextTypee } from "../components/interfaces/interface";
+export const MyContext = createContext<ContextTypee>({
+  favorite: false,
+  setFavorite: () => {},
+});

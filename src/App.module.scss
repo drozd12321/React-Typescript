@@ -6,6 +6,9 @@ body {
   text-align: center;
   min-height: 100vh;
   flex-direction: column;
+  .active {
+    opacity: 0.2;
+  }
 }
 .app {
   margin-top: 40px;
@@ -17,6 +20,7 @@ body {
   flex: 1;
   justify-content: space-between;
 }
+
 .content {
   width: 100%;
   margin-top: 5px;

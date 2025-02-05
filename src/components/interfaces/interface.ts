@@ -9,8 +9,18 @@ export interface PizzaItemProps {
   ingredients: string[];
   sizes: sizes;
   types: number[];
+  isFavorites?: boolean;
+  id?: number;
 }
 export interface PriceState {
   favoritesPizza: PizzaItemProps[];
   totalPrice: number;
+}
+export interface ContextTypee {
+  favorite: boolean;
+  setFavorite: Function;
+}
+export interface PizzaState {
+  pizza: PizzaItemProps[];
+  isLoading: boolean;
 }

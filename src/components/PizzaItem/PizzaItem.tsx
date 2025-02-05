@@ -5,10 +5,9 @@ import { PizzaItemProps } from "../interfaces/interface";
 import { MyContext } from "../../data/Context";
 import { TYPE } from "../../data/data";
 import { useDispatch } from "react-redux";
-import { setPrice } from "../../redux/priceSlice";
-const PizzaItem: React.FC<PizzaItemProps> = (props) => {
+import { setPrice, setFavorites } from "../../redux/priceSlice";
+const PizzaItem = (props: PizzaItemProps) => {
   const [count, setCount] = useState<number>(0);
-  const context = useContext(MyContext)?.data;
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedType, setSelectedType] = useState<number | null>(null);
   const dispatch = useDispatch();
@@ -18,11 +17,12 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
   function handleTypePizza(type: number) {
     setSelectedType(type);
   }
-  function handleCountPizza() {
+  function handleCountPizza(pizza: PizzaItemProps) {
     setCount(count + 1);
     if (selectedSize) {
       const price = Number(props.sizes[selectedSize].replace("₽", ""));
       dispatch(setPrice(price));
+      dispatch(setFavorites(pizza));
     }
   }
   return (
@@ -67,7 +67,7 @@ const PizzaItem: React.FC<PizzaItemProps> = (props) => {
         </div>
         <div
           className={`${styles.checkChld} ${count ? styles.active : ""}`}
-          onClick={selectedSize ? () => handleCountPizza() : () => {}}
+          onClick={selectedSize ? () => handleCountPizza(props) : () => {}}
         >
           <span>Добавить </span>
           <span>{count === 0 ? "" : count}</span>
