@@ -6,9 +6,6 @@ body {
   text-align: center;
   min-height: 100vh;
   flex-direction: column;
-  .active {
-    opacity: 0.2;
-  }
 }
 .app {
   margin-top: 40px;
@@ -19,6 +16,12 @@ body {
   min-height: 100%;
   flex: 1;
   justify-content: space-between;
+  &.active {
+    position: relative;
+    opacity: 0.2;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+  }
 }
 
 .content {
