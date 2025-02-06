@@ -11,7 +11,6 @@ const Pizza = () => {
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
-  console.log(data);
   return (
     <div className={styles.pizzaInfo}>
       {data?.map((pz: PizzaItemProps) => (

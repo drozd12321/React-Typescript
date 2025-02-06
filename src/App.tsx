@@ -11,10 +11,13 @@ import CartFavorites from "./components/CartFavorites/CartFavorites";
 function App() {
   const [favorite, setFavorite] = useState(false);
   const [data, setData] = useState<PizzaItemProps[]>([]);
-  console.log(favorite);
   return (
     <MyContext.Provider value={{ favorite, setFavorite }}>
-      {favorite && <CartFavorites />}
+      {favorite && (
+        <div className={`${styles.favorit} ${favorite ? styles.active : ""}`}>
+          <CartFavorites />
+        </div>
+      )}
       <div className={`${styles.app} ${favorite ? styles.active : ""}`}>
         <Header />
 

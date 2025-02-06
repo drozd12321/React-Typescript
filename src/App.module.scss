@@ -20,11 +20,31 @@ body {
     position: relative;
     opacity: 0.2;
     z-index: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
   }
 }
 
 .content {
   width: 100%;
   margin-top: 5px;
+}
+.favorit {
+  position: fixed;
+  width: 35%;
+  background-color: white;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  box-shadow: -2px 0 5px rgba(185, 6, 6, 0.5);
+  overflow-y: auto;
+  transform: translateX(100%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  &.active {
+    transform: translateX(0%);
+  }
 }

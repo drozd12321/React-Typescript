@@ -1,37 +1,17 @@
-.content {
-  position: fixed;
-  width: 35%;
-  background-color: white;
+.fle {
+  height: 100px;
+  gap: 10px;
   top: 0;
-  right: 0;
-  height: 100vh;
-  box-shadow: -2px 0 5px rgba(185, 6, 6, 0.5);
-  overflow-y: auto;
-  transition: all 0.3s ease;
-  transform: translateX(0);
-  z-index: 10;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px;
-  .fle {
-    height: 100px;
-    gap: 10px;
-    top: 0;
-    display: flex;
-    align-items: center;
-    .icon {
-      margin-top: 10px;
-      font-size: 2em;
-    }
-  }
-  img {
-    height: 60px;
-  }
-  p {
-    font-size: 27px;
+  align-items: center;
+  .icon {
+    margin-top: 10px;
+    font-size: 2em;
   }
 }
-.acive {
-  transform: translateX(100%);
+img {
+  height: 60px;
+}
+p {
+  font-size: 27px;
 }

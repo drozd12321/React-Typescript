@@ -10,16 +10,13 @@ const priceSlice = createSlice({
   name: "priceSlice",
   initialState,
   reducers: {
-    setFavorites(state, action) {
-      state.favoritesPizza.push(action.payload);
-    },
     setPrice(state, action: PayloadAction<number>) {
       state.totalPrice += action.payload;
     },
   },
 });
 export default priceSlice.reducer;
-export const { setPrice, setFavorites } = priceSlice.actions;
+export const { setPrice } = priceSlice.actions;
 export type RootStateу = ReturnType<typeof store.getState>;
 export const selectedPrice = (state: RootStateу) => state.favorite.totalPrice;
 export const selectedFavoritesPizza = (state: RootStateу) =>
