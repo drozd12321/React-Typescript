@@ -21,12 +21,13 @@ const PizzaItem = (props: PizzaItemProps) => {
   function handleTypePizza(type: number) {
     setSelectedType(type);
   }
-  function handleCountPizza(pizza: FavorPizza) {
+  function handleCountPizza(pizza: PizzaItemProps) {
     setCount(count + 1);
     if (selectedSize) {
       const price = Number(props.sizes[selectedSize].replace("₽", ""));
+      const obj = { ...pizza, sizes: price };
       dispatch(setPriceTotal(price));
-      dispatch(setFavoritesPizza(pizza));
+      dispatch(setFavoritesPizza(obj));
       dispatch(setPrice(price));
     }
   }
