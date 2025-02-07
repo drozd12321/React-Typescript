@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import styles from "./PizzaItem.module.scss";
-import { PizzaItemProps } from "../interfaces/interface";
+import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
 import { TYPE } from "../../data/data";
 import { useDispatch } from "react-redux";
-import { setPriceTotal, setPrice } from "../../redux/priceSlice";
+import {
+  setPriceTotal,
+  setPrice,
+  setFavoritesPizza,
+} from "../../redux/priceSlice";
 import { setFavorites } from "../../redux/pizzaSlice";
 const PizzaItem = (props: PizzaItemProps) => {
   const [count, setCount] = useState<number>(0);
@@ -17,12 +21,12 @@ const PizzaItem = (props: PizzaItemProps) => {
   function handleTypePizza(type: number) {
     setSelectedType(type);
   }
-  function handleCountPizza(pizza: PizzaItemProps) {
+  function handleCountPizza(pizza: FavorPizza) {
     setCount(count + 1);
     if (selectedSize) {
       const price = Number(props.sizes[selectedSize].replace("₽", ""));
       dispatch(setPriceTotal(price));
-      dispatch(setFavorites(pizza.id));
+      dispatch(setFavoritesPizza(pizza));
       dispatch(setPrice(price));
     }
   }

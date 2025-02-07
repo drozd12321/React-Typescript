@@ -3,6 +3,16 @@ import { TypeValues } from "../../data/data";
 export type sizes = {
   [key: string]: string;
 };
+export interface FavorPizza {
+  name: string;
+  image_url: string;
+  ingredients: string[];
+  sizes: number;
+  types: number[];
+  isFavorite: boolean;
+  id: number;
+  price?: number;
+}
 export interface PizzaItemProps {
   name: string;
   image_url: string;
@@ -14,6 +24,7 @@ export interface PizzaItemProps {
   price?: number;
 }
 export interface PriceState {
+  favoritesPizza: FavorPizza[];
   price: number[];
   totalPrice: number;
 }
