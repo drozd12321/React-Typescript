@@ -9,7 +9,6 @@ import {
   setPrice,
   setFavoritesPizza,
 } from "../../redux/priceSlice";
-import { setFavorites } from "../../redux/pizzaSlice";
 const PizzaItem = (props: PizzaItemProps) => {
   const [count, setCount] = useState<number>(0);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);

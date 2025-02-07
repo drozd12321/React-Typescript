@@ -32,20 +32,7 @@ const initialState: PizzaState = {
 const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
-  reducers: {
-    setFavorites(state, action) {
-      return {
-        ...state,
-        pizza: state.pizza.map((item) => {
-          if (item.id === action.payload) {
-            return { ...item, isFavorite: true };
-          } else {
-            return item;
-          }
-        }),
-      };
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
@@ -55,7 +42,6 @@ const pizzaSlice = createSlice({
   },
 });
 export default pizzaSlice.reducer;
-export const { setFavorites } = pizzaSlice.actions;
 export const selectPizza = (state: RootStateу) => state.pizza.pizza;
 export type AppDispach = typeof store.dispatch;
 export const selectPizzaFavoriters = (state: RootStateу) => state.pizza;
