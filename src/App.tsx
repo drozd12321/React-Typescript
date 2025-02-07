@@ -20,7 +20,6 @@ function App() {
       )}
       <div className={`${styles.app} ${favorite ? styles.active : ""}`}>
         <Header />
-
         <div className={styles.content}>
           <Category />
         </div>

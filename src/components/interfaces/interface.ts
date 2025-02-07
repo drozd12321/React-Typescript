@@ -11,9 +11,10 @@ export interface PizzaItemProps {
   types: number[];
   isFavorite: boolean;
   id: number;
+  price?: number;
 }
 export interface PriceState {
-  favoritesPizza: PizzaItemProps[];
+  price: number[];
   totalPrice: number;
 }
 export interface ContextTypee {

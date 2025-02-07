@@ -1,17 +1,35 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: transform 0.3s ease-in-out;
+  height: 100vh;
+  box-sizing: border-box;
+}
 .fle {
   height: 100px;
+  margin: 5px;
   gap: 10px;
   top: 0;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   .icon {
     margin-top: 10px;
     font-size: 2em;
   }
+  img {
+    height: 60px;
+  }
+  p {
+    font-size: 27px;
+  }
 }
-img {
-  height: 60px;
-}
-p {
-  font-size: 27px;
+
+.favoritePizza {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
 }
