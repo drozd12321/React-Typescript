@@ -28,6 +28,7 @@ const priceSlice = createSlice({
             pz.id === action.payload.id && pz.sizes === action.payload.sizes
           );
         }),
+        totalPrice: state.totalPrice - action.payload.sizes,
       };
     },
   },
