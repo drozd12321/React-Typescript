@@ -3,7 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { RootStateу } from "./priceSlice";
 import store from "./store";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  isRejectedWithValue,
+} from "@reduxjs/toolkit";
 import { PizzaItemProps, PizzaState } from "../components/interfaces/interface";
 function createPizza(pizza: PizzaItemProps) {
   return {
@@ -21,6 +25,7 @@ export const fetchData = createAsyncThunk("pizza/fetchData", async () => {
     return response.data;
   } catch (err) {
     console.log(err);
+    throw err;
   }
 });
 
@@ -36,8 +41,15 @@ const pizzaSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
+      state.isLoading = false;
       const pizas = action.payload.map(createPizza);
       state.pizza.push(...pizas);
+    });
+    builder.addCase(fetchData.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchData.rejected, (state) => {
+      state.isLoading = true;
     });
   },
 });
@@ -45,3 +57,4 @@ export default pizzaSlice.reducer;
 export const selectPizza = (state: RootStateу) => state.pizza.pizza;
 export type AppDispach = typeof store.dispatch;
 export const selectPizzaFavoriters = (state: RootStateу) => state.pizza;
+export const selectLoading = (state: RootStateу) => state.pizza.isLoading;
