@@ -12,6 +12,7 @@ export interface FavorPizza {
   isFavorite: boolean;
   id: number;
   price?: number;
+  count?: number;
 }
 export interface PizzaItemProps {
   name: string;
@@ -21,7 +22,7 @@ export interface PizzaItemProps {
   types: number[];
   isFavorite: boolean;
   id: number;
-  price?: number;
+  count?: number;
 }
 export interface PriceState {
   favoritesPizza: FavorPizza[];
@@ -35,4 +36,11 @@ export interface ContextTypee {
 export interface PizzaState {
   pizza: PizzaItemProps[];
   isLoading: boolean;
+}
+export interface Count {
+  count: number;
+  id: number;
+}
+export interface CountArray {
+  countPizza: Count[];
 }

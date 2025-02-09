@@ -35,6 +35,10 @@ const CartFavorites = () => {
             ))
           : ""}
       </div>
+      <div className={styles.price}>
+        <p>Цена: </p>
+        <p>350 Р</p>
+      </div>
     </div>
   );
 };

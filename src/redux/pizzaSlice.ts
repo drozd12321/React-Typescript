@@ -3,17 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { RootStateу } from "./priceSlice";
 import store from "./store";
-import {
-  createAsyncThunk,
-  createSlice,
-  isRejectedWithValue,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { PizzaItemProps, PizzaState } from "../components/interfaces/interface";
 function createPizza(pizza: PizzaItemProps) {
   return {
     ...pizza,
     isFavorite: false,
     id: uuidv4(),
+    count: 0,
   };
 }
 
