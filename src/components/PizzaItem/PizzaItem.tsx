@@ -12,8 +12,10 @@ import {
 } from "../../redux/priceSlice";
 import { selectPizza } from "../../redux/pizzaSlice";
 const PizzaItem = (props: PizzaItemProps) => {
-  const [count, setCount] = useState<number>(0);
+  // const [count, setCount] = useState<number>(0);
   const ccount = useSelector(selectedCount);
+  const curentItem = ccount.find((item) => item.id === props.id)?.count || 0;
+  console.log(curentItem);
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedType, setSelectedType] = useState<number | null>(null);
@@ -26,7 +28,7 @@ const PizzaItem = (props: PizzaItemProps) => {
   }
   function handleCountPizza(pizza: PizzaItemProps) {
     dispatch(setCCount(pizza.id));
-    setCount(count + 1);
+    // setCount(count + 1);
     if (selectedSize) {
       const price = Number(props.sizes[selectedSize].replace("₽", ""));
       const obj = { ...pizza, sizes: price };
@@ -76,11 +78,11 @@ const PizzaItem = (props: PizzaItemProps) => {
           </span>
         </div>
         <div
-          className={`${styles.checkChld} ${count ? styles.active : ""}`}
+          className={`${styles.checkChld} ${curentItem ? styles.active : ""}`}
           onClick={selectedSize ? () => handleCountPizza(props) : () => {}}
         >
           <span>Добавить </span>
-          <span>{count === 0 ? "" : count}</span>
+          <span>{curentItem}</span>
         </div>
       </div>
     </div>

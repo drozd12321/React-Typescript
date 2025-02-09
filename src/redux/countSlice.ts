@@ -20,8 +20,14 @@ const countSlice = createSlice({
         state.countPizza.push({ count: +1, id: action.payload });
       }
     },
+    setDelCount(state, action) {
+      const st = state.countPizza.find((item) => item.id === action.payload);
+      if (st) {
+        st.count -= 1;
+      }
+    },
   },
 });
 export default countSlice.reducer;
-export const { setCCount } = countSlice.actions;
+export const { setCCount, setDelCount } = countSlice.actions;
 export const selectedCount = (state: RootStateу) => state.count.countPizza;
