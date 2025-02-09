@@ -3,7 +3,7 @@ import styles from "./PizzaItem.module.scss";
 import { PizzaItemProps } from "../interfaces/interface";
 import { TYPE } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
-import { setCCount } from "../../redux/countSlice";
+import { selectedCount, setCCount } from "../../redux/countSlice";
 import {
   setPriceTotal,
   setPrice,
@@ -13,7 +13,7 @@ import {
 import { selectPizza } from "../../redux/pizzaSlice";
 const PizzaItem = (props: PizzaItemProps) => {
   const [count, setCount] = useState<number>(0);
-  // const ccount = useSelector(selectedCount);
+  const ccount = useSelector(selectedCount);
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedType, setSelectedType] = useState<number | null>(null);

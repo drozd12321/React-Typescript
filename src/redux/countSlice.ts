@@ -24,4 +24,4 @@ const countSlice = createSlice({
 });
 export default countSlice.reducer;
 export const { setCCount } = countSlice.actions;
-// export const selectedCount = (state: RootStateу) => state.count.count;
+export const selectedCount = (state: RootStateу) => state.count.countPizza;
