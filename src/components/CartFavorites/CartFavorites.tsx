@@ -4,13 +4,18 @@ import { v4 as uuidv4 } from "uuid";
 import logo from "../../assets/img/pizza-logo.svg";
 import styles from "./CartFavorite.module.scss";
 import { MyContext } from "../../data/Context";
-import { selectPizzaFav, selectPrice } from "../../redux/priceSlice";
+import {
+  selectedPrice,
+  selectPizzaFav,
+  selectPrice,
+} from "../../redux/priceSlice";
 import { useSelector } from "react-redux";
 import PizzaItemFavor from "../PizzaItemFavor/PizzaItemFavor";
 
 const CartFavorites = () => {
   const { setFavorite } = useContext(MyContext);
   const statePizzaFavorites = useSelector(selectPizzaFav);
+  const selectTotalPrice = useSelector(selectedPrice);
   function handlFavorite() {
     setFavorite(false);
   }
@@ -36,7 +41,7 @@ const CartFavorites = () => {
       </div>
       <div className={styles.price}>
         <p>Цена: </p>
-        <p>350 Р</p>
+        <p>{selectTotalPrice}</p>
       </div>
     </div>
   );
