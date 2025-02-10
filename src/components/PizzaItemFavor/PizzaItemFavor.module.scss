@@ -17,6 +17,15 @@
     border-radius: 90%;
     overflow: hidden;
   }
+  .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    svg {
+      font-size: 2em;
+    }
+  }
 
   img {
     height: 100%;

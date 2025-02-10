@@ -34,7 +34,9 @@ const initialState: PizzaState = {
 const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
-  reducers: {},
+  reducers: {
+    setFavorPizza(state, action) {},
+  },
 
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {

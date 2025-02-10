@@ -18,7 +18,24 @@ const priceSlice = createSlice({
       state.price.push(action.payload);
     },
     setFavoritesPizza(state, action) {
-      state.favoritesPizza.push(action.payload);
+      const pz = state.favoritesPizza.findIndex((item) => {
+        return (
+          item.id === action.payload.id && item.sizes === action.payload.sizes
+        );
+      });
+      if (pz !== -1) {
+        return {
+          ...state,
+          favoritesPizza: state.favoritesPizza.map((item, ind) =>
+            ind === pz ? { ...item, count: item.count + 1 } : item
+          ),
+        };
+      } else {
+        state.favoritesPizza.push({
+          ...action.payload,
+          count: 1,
+        });
+      }
     },
     setDeleteFavoritPizza(state, action) {
       return {
@@ -31,6 +48,36 @@ const priceSlice = createSlice({
         totalPrice: state.totalPrice - action.payload.sizes,
       };
     },
+    setPlus(state, action) {
+      const pz = state.favoritesPizza.findIndex((item) => {
+        return (
+          item.id === action.payload.id && item.sizes === action.payload.sizes
+        );
+      });
+      if (pz != -1) {
+        return {
+          ...state,
+          favoritesPizza: state.favoritesPizza.map((item, ind) =>
+            ind === pz ? { ...item, count: item.count + 1 } : item
+          ),
+        };
+      }
+    },
+    setMinus(state, action) {
+      const pz = state.favoritesPizza.findIndex((item) => {
+        return (
+          item.id === action.payload.id && item.sizes === action.payload.sizes
+        );
+      });
+      if (pz != -1) {
+        return {
+          ...state,
+          favoritesPizza: state.favoritesPizza.map((item, ind) =>
+            ind === pz ? { ...item, count: item.count - 1 } : item
+          ),
+        };
+      }
+    },
   },
 });
 export default priceSlice.reducer;
@@ -39,6 +86,8 @@ export const {
   setPrice,
   setFavoritesPizza,
   setDeleteFavoritPizza,
+  setPlus,
+  setMinus,
 } = priceSlice.actions;
 export type RootStateу = ReturnType<typeof store.getState>;
 export const selectedPrice = (state: RootStateу) => state.favorite.totalPrice;
