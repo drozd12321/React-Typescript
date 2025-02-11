@@ -9,12 +9,14 @@ import {
   setFavoritesPizza,
   setTotal,
 } from "../../redux/priceSlice";
-selectedCount;
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
 const PizzaItem = (props: PizzaItemProps) => {
   const ccount = useSelector(selectedCount);
   const curentItem = ccount.find((item) => item.id === props.id)?.count || 0;
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedType, setSelectedType] = useState<number | null>(null);
+  const [modalState, settModal] = useState(false);
   const dispatch = useDispatch();
   function handleSizeSelected(size: string) {
     setSelectedSize(size);
@@ -32,8 +34,29 @@ const PizzaItem = (props: PizzaItemProps) => {
       dispatch(setFavoritesPizza(obj));
     }
   }
+  function toggleModal() {
+    settModal(!modalState);
+  }
+  const styleModal = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      width: "40%",
+      height: "50vh",
+      borderRadius: "10px",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
   return (
-    <div className={styles.containerPizza}>
+    <div className={styles.containerPizza} onClick={toggleModal}>
+      <Modal
+        isOpen={modalState}
+        onRequestClose={toggleModal}
+        style={styleModal}
+      ></Modal>
       <div className={styles.pizzaImg}>
         <img src={props.image_url} alt="" />
         <p>{props.name}</p>

@@ -44,3 +44,7 @@ export interface Count {
 export interface CountArray {
   countPizza: Count[];
 }
+export interface ModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
