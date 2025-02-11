@@ -20,6 +20,7 @@ export interface FavorPizza {
   sizes: number;
   types: number[];
   id: number;
+  price: number;
   count: number;
 }
 export interface PriceState {

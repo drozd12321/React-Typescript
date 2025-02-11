@@ -5,6 +5,7 @@ import { useContext } from "react";
 import pizzaLogo from "../../assets/img/pizza-logo.svg";
 import styles from "./Header.module.scss";
 import { MyContext } from "../../data/Context";
+import { Link } from "react-router-dom";
 const Header = () => {
   const state = useSelector(selectedPrice);
   const { favorite } = useContext(MyContext);
@@ -30,12 +31,14 @@ const Header = () => {
             <span className={styles.separator}></span>
             <span>
               {" "}
-              <SlBasket
-                onClick={() => {
-                  handleCartFavorite();
-                }}
-                className={styles.BtnIcon}
-              />
+              <Link to="/favorites">
+                <SlBasket
+                  onClick={() => {
+                    handleCartFavorite();
+                  }}
+                  className={styles.BtnIcon}
+                />
+              </Link>
             </span>
           </button>
         </div>

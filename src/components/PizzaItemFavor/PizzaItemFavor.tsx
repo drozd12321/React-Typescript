@@ -5,8 +5,9 @@ import styles from "./PizzaItemFavor.module.scss";
 import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
 import {
   setDeleteFavoritPizza,
+  setFavoritesPizza,
   setMinus,
-  setPlus,
+  setPriceTotal,
 } from "../../redux/priceSlice";
 import { useDispatch } from "react-redux";
 import { setCCount, setDelCount, setReset } from "../../redux/countSlice";
@@ -17,8 +18,9 @@ const PizzaItemFavor = (props: FavorPizza) => {
     dispatch(setReset(pr.id));
   }
   function handlePlus() {
-    dispatch(setPlus(props));
     dispatch(setCCount(props.id));
+    dispatch(setPriceTotal(props.sizes));
+    dispatch(setFavoritesPizza(props));
   }
   function handleMinus() {
     dispatch(setMinus(props));
@@ -30,10 +32,10 @@ const PizzaItemFavor = (props: FavorPizza) => {
         <img src={props.image_url} alt="" />
       </div>
       <div className={styles.itemChld}>
-        <p>{`${props.name}: ${props.sizes}`}</p>
+        <p>{`${props.name}: ${props.price}`}</p>
         <p>{` ${props.ingredients} `}</p>
         <div className={styles.counter}>
-          <div onClick={() => handleMinus()}>
+          <div onClick={props.count ? handleMinus : undefined}>
             <CiCircleMinus />{" "}
           </div>
           <div>{props.count}</div>

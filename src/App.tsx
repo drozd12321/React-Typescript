@@ -10,37 +10,22 @@ import { PizzaItemProps } from "./components/interfaces/interface";
 import CartFavorites from "./components/CartFavorites/CartFavorites";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispach, fetchData, selectLoading } from "./redux/pizzaSlice";
-import Skeleton from "react-loading-skeleton";
 import Loader from "./components/Loader/Loader";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
 function App() {
   const dispatch = useDispatch<AppDispach>();
   useEffect(() => {
     dispatch(fetchData());
   }, []);
   const [favorite, setFavorite] = useState(false);
-  const loading = useSelector(selectLoading);
+
   return (
     <MyContext.Provider value={{ favorite, setFavorite }}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          {favorite && (
-            <div
-              className={`${styles.favorit} ${favorite ? styles.active : ""}`}
-            >
-              <CartFavorites />
-            </div>
-          )}
-          <div className={`${styles.app} ${favorite ? styles.active : ""}`}>
-            <Header />
-            <div className={styles.content}>
-              <Category />
-            </div>
-            <Pizza />
-          </div>
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<CartFavorites />} />
+      </Routes>
     </MyContext.Provider>
   );
 }

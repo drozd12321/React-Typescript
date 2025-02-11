@@ -11,6 +11,7 @@ import {
 } from "../../redux/priceSlice";
 import { useSelector } from "react-redux";
 import PizzaItemFavor from "../PizzaItemFavor/PizzaItemFavor";
+import { Link } from "react-router-dom";
 
 const CartFavorites = () => {
   const { setFavorite } = useContext(MyContext);
@@ -28,9 +29,9 @@ const CartFavorites = () => {
         <div className={styles.item}>
           <p>React Pizza</p>
         </div>
-        <div>
+        <Link to={"/"}>
           <IoMdClose className={styles.icon} onClick={() => handlFavorite()} />
-        </div>
+        </Link>
       </div>
       <div className={styles.favoritePizza}>
         {statePizzaFavorites

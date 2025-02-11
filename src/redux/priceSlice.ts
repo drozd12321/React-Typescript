@@ -14,9 +14,6 @@ const priceSlice = createSlice({
     setPriceTotal(state, action: PayloadAction<number>) {
       state.totalPrice += action.payload;
     },
-    setPrice(state, action) {
-      state.price.push(action.payload);
-    },
     setFavoritesPizza(state, action) {
       const pz = state.favoritesPizza.findIndex((item) => {
         return (
@@ -27,13 +24,20 @@ const priceSlice = createSlice({
         return {
           ...state,
           favoritesPizza: state.favoritesPizza.map((item, ind) =>
-            ind === pz ? { ...item, count: item.count + 1 } : item
+            ind === pz
+              ? {
+                  ...item,
+                  count: item.count + 1,
+                  price: action.payload.sizes * (item.count + 1),
+                }
+              : item
           ),
         };
       } else {
         state.favoritesPizza.push({
           ...action.payload,
           count: 1,
+          price: action.payload.sizes,
         });
       }
     },
@@ -48,21 +52,6 @@ const priceSlice = createSlice({
         totalPrice: state.totalPrice - action.payload.sizes,
       };
     },
-    setPlus(state, action) {
-      const pz = state.favoritesPizza.findIndex((item) => {
-        return (
-          item.id === action.payload.id && item.sizes === action.payload.sizes
-        );
-      });
-      if (pz != -1) {
-        return {
-          ...state,
-          favoritesPizza: state.favoritesPizza.map((item, ind) =>
-            ind === pz ? { ...item, count: item.count + 1 } : item
-          ),
-        };
-      }
-    },
     setMinus(state, action) {
       const pz = state.favoritesPizza.findIndex((item) => {
         return (
@@ -73,8 +62,15 @@ const priceSlice = createSlice({
         return {
           ...state,
           favoritesPizza: state.favoritesPizza.map((item, ind) =>
-            ind === pz ? { ...item, count: item.count - 1 } : item
+            ind === pz
+              ? {
+                  ...item,
+                  count: item.count - 1,
+                  price: action.payload.sizes * (item.count - 1),
+                }
+              : item
           ),
+          totalPrice: state.totalPrice - action.payload.sizes,
         };
       }
     },
@@ -83,10 +79,9 @@ const priceSlice = createSlice({
 export default priceSlice.reducer;
 export const {
   setPriceTotal,
-  setPrice,
   setFavoritesPizza,
   setDeleteFavoritPizza,
-  setPlus,
+  // setPlus,
   setMinus,
 } = priceSlice.actions;
 export type RootStateу = ReturnType<typeof store.getState>;
