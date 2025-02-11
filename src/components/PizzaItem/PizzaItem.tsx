@@ -4,7 +4,11 @@ import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
 import { TYPE } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedCount, setCCount } from "../../redux/countSlice";
-import { setPriceTotal, setFavoritesPizza } from "../../redux/priceSlice";
+import {
+  setPriceTotal,
+  setFavoritesPizza,
+  setTotal,
+} from "../../redux/priceSlice";
 selectedCount;
 const PizzaItem = (props: PizzaItemProps) => {
   const ccount = useSelector(selectedCount);
@@ -20,6 +24,7 @@ const PizzaItem = (props: PizzaItemProps) => {
   }
   function handleCountPizza(pizza: PizzaItemProps) {
     dispatch(setCCount(pizza.id));
+    dispatch(setTotal());
     if (selectedSize) {
       const price = Number(props.sizes[selectedSize].replace("₽", ""));
       const obj: FavorPizza = { ...pizza, sizes: price, count: 1, price: 1 };

@@ -27,6 +27,7 @@ export interface PriceState {
   favoritesPizza: FavorPizza[];
   price: number[];
   totalPrice: number;
+  totalCount: number;
 }
 export interface ContextTypee {
   favorite: boolean;

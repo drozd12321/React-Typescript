@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  height: 85vh;
+  align-items: center;
+  justify-content: center;
+  .item {
+    display: flex;
+    width: 85%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
+    h1 {
+      font-weight: 400;
+      margin-right: 20px;
+    }
+    img {
+      height: 70%;
+    }
+  }
+}

@@ -26,6 +26,9 @@ const PizzaItemFavor = (props: FavorPizza) => {
     dispatch(setMinus(props));
     dispatch(setDelCount(props.id));
   }
+  if (!props.count) {
+    return "";
+  }
   return (
     <div className={styles.item}>
       <div className={styles.imgCont}>

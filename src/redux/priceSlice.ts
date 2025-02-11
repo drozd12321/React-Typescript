@@ -6,6 +6,7 @@ const initialState: PriceState = {
   favoritesPizza: [],
   price: [],
   totalPrice: 0,
+  totalCount: 0,
 };
 const priceSlice = createSlice({
   name: "priceSlice",
@@ -41,16 +42,37 @@ const priceSlice = createSlice({
         });
       }
     },
-    setDeleteFavoritPizza(state, action) {
+    setTotal(state) {
       return {
         ...state,
-        favoritesPizza: state.favoritesPizza.filter((pz) => {
-          return !(
-            pz.id === action.payload.id && pz.sizes === action.payload.sizes
-          );
-        }),
-        totalPrice: state.totalPrice - action.payload.sizes,
+        totalCount: state.favoritesPizza.reduce(
+          (sum, item) => sum + item.count,
+          0
+        ),
       };
+    },
+    setDeleteFavoritPizza(state, action) {
+      const pz = state.favoritesPizza.findIndex((item) => {
+        return (
+          item.id === action.payload.id && item.sizes === action.payload.sizes
+        );
+      });
+      if (pz !== -1) {
+        return {
+          ...state,
+          favoritesPizza: state.favoritesPizza.map((item, ind) =>
+            ind === pz
+              ? {
+                  ...item,
+                  count: 0,
+                  price: action.payload.sizes * 0,
+                }
+              : item
+          ),
+          totalPrice:
+            state.totalPrice - action.payload.sizes * action.payload.count,
+        };
+      }
     },
     setMinus(state, action) {
       const pz = state.favoritesPizza.findIndex((item) => {
@@ -81,7 +103,7 @@ export const {
   setPriceTotal,
   setFavoritesPizza,
   setDeleteFavoritPizza,
-  // setPlus,
+  setTotal,
   setMinus,
 } = priceSlice.actions;
 export type RootStateу = ReturnType<typeof store.getState>;

@@ -12,14 +12,12 @@ import {
 import { useSelector } from "react-redux";
 import PizzaItemFavor from "../PizzaItemFavor/PizzaItemFavor";
 import { Link } from "react-router-dom";
+import Home from "../Home";
+import CartZero from "../CartZero/CartZero";
 
 const CartFavorites = () => {
-  const { setFavorite } = useContext(MyContext);
   const statePizzaFavorites = useSelector(selectPizzaFav);
   const selectTotalPrice = useSelector(selectedPrice);
-  function handlFavorite() {
-    setFavorite(false);
-  }
   return (
     <div className={styles.cart}>
       <div className={styles.fle}>
@@ -30,7 +28,7 @@ const CartFavorites = () => {
           <p>React Pizza</p>
         </div>
         <Link to={"/"}>
-          <IoMdClose className={styles.icon} onClick={() => handlFavorite()} />
+          <IoMdClose className={styles.icon} />
         </Link>
       </div>
       <div className={styles.favoritePizza}>
@@ -40,10 +38,14 @@ const CartFavorites = () => {
             ))
           : ""}
       </div>
-      <div className={styles.price}>
-        <p>Цена: </p>
-        <p>{selectTotalPrice}</p>
-      </div>
+      {statePizzaFavorites.length > 0 ? (
+        <div className={styles.price}>
+          <p>Цена: </p>
+          <p>{selectTotalPrice}</p>
+        </div>
+      ) : (
+        <CartZero />
+      )}
     </div>
   );
 };
