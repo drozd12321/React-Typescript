@@ -40,20 +40,9 @@ const Sort = () => {
       dispatch(setPizza(arrSort));
     }
   }, [arrSort]);
-  function ResetFilter() {
-    console.log("fds");
-    setSort("");
-  }
   return (
     <div className={styles.sort}>
-      <label
-        htmlFor="sort"
-        onClick={() => {
-          ResetFilter();
-        }}
-      >
-        Сортировать по:
-      </label>
+      <label htmlFor="sort">Сортировать по:</label>
       <select
         name="sort"
         id="sort"
