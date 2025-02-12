@@ -17,7 +17,7 @@ const ModalComponent = ({
         setActive(false);
       }}
     >
-      <div className={styles.pizzaImg}>
+      <div className={styles.pizzaImg} onClick={(e) => e.stopPropagation}>
         {/* <img src={props.image_url} alt="" />
         <p>{props.name}</p> */}
       </div>
