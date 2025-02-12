@@ -12,6 +12,8 @@ export interface PizzaItemProps {
   isFavorite: boolean;
   id: number;
   count: number;
+  category: number;
+  rating: number;
 }
 export interface FavorPizza {
   name: string;
@@ -22,6 +24,8 @@ export interface FavorPizza {
   id: number;
   price: number;
   count: number;
+  category: number;
+  rating: number;
 }
 export interface PriceState {
   favoritesPizza: FavorPizza[];

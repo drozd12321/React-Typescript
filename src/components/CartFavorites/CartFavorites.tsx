@@ -1,18 +1,10 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { v4 as uuidv4 } from "uuid";
 import logo from "../../assets/img/pizza-logo.svg";
 import styles from "./CartFavorite.module.scss";
-import { MyContext } from "../../data/Context";
-import {
-  selectedPrice,
-  selectPizzaFav,
-  selectPrice,
-} from "../../redux/priceSlice";
+import { selectedPrice, selectPizzaFav } from "../../redux/priceSlice";
 import { useSelector } from "react-redux";
 import PizzaItemFavor from "../PizzaItemFavor/PizzaItemFavor";
 import { Link } from "react-router-dom";
-import Home from "../Home";
 import CartZero from "../CartZero/CartZero";
 
 const CartFavorites = () => {

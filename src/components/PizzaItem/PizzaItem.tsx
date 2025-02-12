@@ -17,7 +17,7 @@ const PizzaItem = (props: PizzaItemProps) => {
   const curentItem = ccount.find((item) => item.id === props.id)?.count || 0;
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedType, setSelectedType] = useState<number | null>(null);
-  const [modalState, settModal] = useState(true);
+  const [modalState, settModal] = useState(false);
   const dispatch = useDispatch();
   function handleSizeSelected(size: string) {
     setSelectedSize(size);
@@ -36,13 +36,18 @@ const PizzaItem = (props: PizzaItemProps) => {
     }
   }
   function toggleModal() {
-    settModal(!modalState);
+    settModal(true);
   }
   Modal.setAppElement("#root");
 
   return (
     <div className={styles.containerPizza}>
-      <ModalComponent active={modalState} setActive={settModal} />
+      <ModalComponent
+        active={modalState}
+        setActive={settModal}
+        name={props.name}
+        image={props.image_url}
+      />
       <div className={styles.pizzaImg}>
         <img src={props.image_url} alt="" onClick={toggleModal} />
         <p>{props.name}</p>

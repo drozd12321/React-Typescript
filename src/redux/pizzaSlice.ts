@@ -35,7 +35,10 @@ const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
   reducers: {
-    setFavorPizza(state, action) {},
+    setPizza(state, action) {
+      const pz = action.payload.map(createPizza);
+      state.pizza = pz;
+    },
   },
 
   extraReducers: (builder) => {
@@ -57,3 +60,4 @@ export const selectPizza = (state: RootStateу) => state.pizza.pizza;
 export type AppDispach = typeof store.dispatch;
 export const selectPizzaFavoriters = (state: RootStateу) => state.pizza;
 export const selectLoading = (state: RootStateу) => state.pizza.isLoading;
+export const { setPizza } = pizzaSlice.actions;

@@ -8,11 +8,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .pizzaImg {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    // height: 200px;
-    // width: 400px;
+  transform: scale(0);
+}
+.pizzaImg {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: white;
+  height: 400px;
+  img {
+    height: 90%;
+    border-radius: 10px;
   }
+  p {
+    margin-top: 0;
+    font-size: 25px;
+  }
+}
+.item.active {
+  transition: scale 0.3s ease;
+  transform: scale(1);
 }

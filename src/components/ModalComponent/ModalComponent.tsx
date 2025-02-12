@@ -5,21 +5,24 @@ import { PizzaItemProps } from "../interfaces/interface";
 const ModalComponent = ({
   active,
   setActive,
+  name,
+  image,
 }: {
   active: boolean;
+  name: string;
+  image: string;
   setActive: (value: boolean) => void;
 }) => {
-  active;
   return (
     <div
-      className={styles.item}
+      className={active ? `${styles.item} ${styles.active}` : styles.item}
       onClick={() => {
         setActive(false);
       }}
     >
       <div className={styles.pizzaImg} onClick={(e) => e.stopPropagation}>
-        {/* <img src={props.image_url} alt="" />
-        <p>{props.name}</p> */}
+        <img src={image} alt="" />
+        <p>{name}</p>
       </div>
     </div>
   );
