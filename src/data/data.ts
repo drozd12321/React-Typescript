@@ -3,7 +3,7 @@ import { CSSProperties } from "react";
 export const category: string[] = [
   "Все",
   "Мясные",
-  "Вегатариански",
+  "Вегатарианские",
   "Гриль",
   "Острые",
   "Закрытые",

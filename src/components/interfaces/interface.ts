@@ -12,7 +12,7 @@ export interface PizzaItemProps {
   isFavorite: boolean;
   id: number;
   count: number;
-  category: number;
+  category: string;
   rating: number;
 }
 export interface FavorPizza {
@@ -24,7 +24,7 @@ export interface FavorPizza {
   id: number;
   price: number;
   count: number;
-  category: number;
+  category: string;
   rating: number;
 }
 export interface PriceState {
@@ -39,6 +39,8 @@ export interface ContextTypee {
 }
 export interface PizzaState {
   pizza: PizzaItemProps[];
+  pizzaCat: PizzaItemProps[];
+  selectCategory: string;
   isLoading: boolean;
 }
 export interface Count {

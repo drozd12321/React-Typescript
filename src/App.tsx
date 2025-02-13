@@ -7,10 +7,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import PizzaItemCart from "./components/PizzaItemCart/PizzaItemCart";
 function App() {
-  const dispatch = useDispatch<AppDispach>();
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
   const [favorite, setFavorite] = useState(false);
 
   return (

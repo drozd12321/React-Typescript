@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import styles from "./PizzaItem.module.scss";
 import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
 import { TYPE } from "../../data/data";
@@ -11,7 +11,7 @@ import {
 } from "../../redux/priceSlice";
 import ModalComponent from "../ModalComponent/ModalComponent.tsx";
 import { Link } from "react-router-dom";
-const PizzaItem = (props: PizzaItemProps) => {
+const PizzaItem = forwardRef((props: PizzaItemProps, ref) => {
   const ccount = useSelector(selectedCount);
   const curentItem = ccount.find((item) => item.id === props.id)?.count || 0;
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -95,6 +95,6 @@ const PizzaItem = (props: PizzaItemProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default PizzaItem;

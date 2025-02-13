@@ -28,6 +28,8 @@ export const fetchData = createAsyncThunk("pizza/fetchData", async () => {
 
 const initialState: PizzaState = {
   pizza: [],
+  pizzaCat: [],
+  selectCategory: "Все",
   isLoading: false,
 };
 
@@ -38,6 +40,9 @@ const pizzaSlice = createSlice({
     setPizza(state, action) {
       const pz = action.payload.map(createPizza);
       state.pizza = pz;
+    },
+    setCategory(state, action) {
+      return { ...state, selectCategory: action.payload };
     },
   },
 
@@ -60,4 +65,5 @@ export const selectPizza = (state: RootStateу) => state.pizza.pizza;
 export type AppDispach = typeof store.dispatch;
 export const selectPizzaFavoriters = (state: RootStateу) => state.pizza;
 export const selectLoading = (state: RootStateу) => state.pizza.isLoading;
-export const { setPizza } = pizzaSlice.actions;
+export const { setPizza, setCategory } = pizzaSlice.actions;
+export const selectCategory = (state: RootStateу) => state.pizza.selectCategory;
