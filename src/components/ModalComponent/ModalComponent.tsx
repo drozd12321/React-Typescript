@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./ModalComponent.module.scss";
-import { PizzaItemProps } from "../interfaces/interface";
 
 const ModalComponent = ({
   active,

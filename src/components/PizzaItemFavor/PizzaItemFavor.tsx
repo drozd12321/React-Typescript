@@ -35,7 +35,7 @@ const PizzaItemFavor = (props: FavorPizza) => {
         <img src={props.image_url} alt="" />
       </div>
       <div className={styles.itemChld}>
-        <p>{`${props.name}: ${props.price}`}</p>
+        <p>{`${props.name}: ${props.price} ₽`}</p>
         <p>{` ${props.ingredients} `}</p>
         <div className={styles.counter}>
           <div onClick={props.count ? handleMinus : undefined}>

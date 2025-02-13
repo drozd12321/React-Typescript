@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./PizzaItem.module.scss";
 import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
-import { modalVariants, TYPE } from "../../data/data";
+import { TYPE } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedCount, setCCount } from "../../redux/countSlice";
 import {
@@ -9,9 +9,8 @@ import {
   setFavoritesPizza,
   setTotal,
 } from "../../redux/priceSlice";
-import { styleModal, styleImg, stylecontainerPizza } from "../../data/data.ts";
-import Modal from "react-modal";
 import ModalComponent from "../ModalComponent/ModalComponent.tsx";
+import { Link } from "react-router-dom";
 const PizzaItem = (props: PizzaItemProps) => {
   const ccount = useSelector(selectedCount);
   const curentItem = ccount.find((item) => item.id === props.id)?.count || 0;
@@ -38,8 +37,6 @@ const PizzaItem = (props: PizzaItemProps) => {
   function toggleModal() {
     settModal(true);
   }
-  Modal.setAppElement("#root");
-
   return (
     <div className={styles.containerPizza}>
       <ModalComponent
@@ -50,7 +47,9 @@ const PizzaItem = (props: PizzaItemProps) => {
       />
       <div className={styles.pizzaImg}>
         <img src={props.image_url} alt="" onClick={toggleModal} />
-        <p>{props.name}</p>
+        <Link to={`/cartitem/${props.id}`}>
+          <p>{props.name}</p>
+        </Link>
       </div>
       <div className={styles.charcter}>
         <div className={styles.item}>

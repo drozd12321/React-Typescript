@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { AppDispach, fetchData } from "./redux/pizzaSlice";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import PizzaItemCart from "./components/PizzaItemCart/PizzaItemCart";
 function App() {
   const dispatch = useDispatch<AppDispach>();
   useEffect(() => {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<CartFavorites />} />
+        <Route path="/cartitem/:id" element={<PizzaItemCart />}></Route>
       </Routes>
     </MyContext.Provider>
   );
