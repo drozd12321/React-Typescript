@@ -31,6 +31,7 @@ const initialState: PizzaState = {
   pizzaCat: [],
   selectCategory: "Все",
   isLoading: false,
+  dataLoader: false,
 };
 
 const pizzaSlice = createSlice({
@@ -51,6 +52,7 @@ const pizzaSlice = createSlice({
       state.isLoading = false;
       const pizas = action.payload.map(createPizza);
       state.pizza.push(...pizas);
+      state.dataLoader = true;
     });
     builder.addCase(fetchData.pending, (state) => {
       state.isLoading = true;

@@ -42,6 +42,7 @@ export interface PizzaState {
   pizzaCat: PizzaItemProps[];
   selectCategory: string;
   isLoading: boolean;
+  dataLoader: boolean;
 }
 export interface Count {
   count: number;
