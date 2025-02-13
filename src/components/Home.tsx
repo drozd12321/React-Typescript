@@ -5,6 +5,7 @@ import CartFavorites from "./CartFavorites/CartFavorites";
 import Header from "./header/Header";
 import Category from "./category/Category";
 import Pizza from "./Pizza/Pizza";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispach, fetchData, selectLoading } from "../redux/pizzaSlice";
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
   const loading = useSelector(selectLoading);
   const dispatch = useDispatch<AppDispach>();
   const dataLoader = useRef(false);
+  const [anim] = useAutoAnimate();
   useEffect(() => {
     if (!dataLoader.current) {
       dispatch(fetchData());
@@ -26,6 +28,7 @@ const Home = () => {
         <>
           {favorite && (
             <div
+              ref={anim}
               className={`${styles.favorit} ${favorite ? styles.active : ""}`}
             >
               <CartFavorites />
