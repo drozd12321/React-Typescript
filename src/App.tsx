@@ -11,22 +11,12 @@ function App() {
   const [anim] = useAutoAnimate();
   return (
     <MyContext.Provider value={{ favorite, setFavorite }}>
-<<<<<<< HEAD
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<CartFavorites />} />
         <Route path="/cartitem/:id" element={<PizzaItemCart />}></Route>
         <Route path="/authorization" element={<Authorization />} />
       </Routes>
-=======
-      <div ref={anim}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/favorites" element={<CartFavorites />} />
-          <Route path="/cartitem/:id" element={<PizzaItemCart />}></Route>
-        </Routes>
-      </div>
->>>>>>> 458b66619880b5d907eb0573704826276ae16fd8
     </MyContext.Provider>
   );
 }
