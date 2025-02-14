@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Loader from "./Loader/Loader";
 import styles from "../App.module.scss";
 import CartFavorites from "./CartFavorites/CartFavorites";
 import Header from "./header/Header";
 import Category from "./category/Category";
 import Pizza from "./Pizza/Pizza";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispach, fetchData, selectLoading } from "../redux/pizzaSlice";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 const Home = () => {
   const [favorite, setFavorite] = useState(false);
   const loading = useSelector(selectLoading);
-  const [anim] = useAutoAnimate();
   const dispatch = useDispatch<AppDispach>();
+  const dataLoader = useRef(false);
+  const [anim] = useAutoAnimate();
   useEffect(() => {
-    dispatch(fetchData());
-  }, []);
+    if (!dataLoader.current) {
+      dispatch(fetchData());
+      dataLoader.current = true;
+    }
+  }, [dataLoader]);
   return (
     <>
       {loading ? (

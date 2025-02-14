@@ -4,17 +4,16 @@ import styles from "./CartFavorite.module.scss";
 import { selectedPrice, selectPizzaFav } from "../../redux/priceSlice";
 import { useSelector } from "react-redux";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-
 import PizzaItemFavor from "../PizzaItemFavor/PizzaItemFavor";
 import { Link } from "react-router-dom";
 import CartZero from "../CartZero/CartZero";
 
 const CartFavorites = () => {
+  const [anin] = useAutoAnimate();
   const statePizzaFavorites = useSelector(selectPizzaFav);
   const selectTotalPrice = useSelector(selectedPrice);
-  const [enableAnimate] = useAutoAnimate();
   return (
-    <div className={styles.cart}>
+    <div className={styles.cart} ref={anin}>
       <div className={styles.fle}>
         <div className={styles.item}>
           <img src={logo} alt="" />
@@ -22,13 +21,16 @@ const CartFavorites = () => {
         <div className={styles.item}>
           <p>React Pizza</p>
         </div>
-        <div>
-          <Link to={"/"}>
-            <IoMdClose className={styles.icon} />
-          </Link>
-        </div>
+
+        <Link
+          className={styles.icon}
+          to="/"
+          onClick={() => console.log("sdsd")}
+        >
+          <IoMdClose />
+        </Link>
       </div>
-      <div className={styles.favoritePizza} ref={enableAnimate}>
+      <div className={styles.favoritePizza}>
         {statePizzaFavorites
           ? statePizzaFavorites.map((piz, index) => (
               <PizzaItemFavor key={index} {...piz} />
