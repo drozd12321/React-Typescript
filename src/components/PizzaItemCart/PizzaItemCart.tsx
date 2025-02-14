@@ -21,7 +21,6 @@ const PizzaItemCart = () => {
   const itemCurent = count.find((it) => String(it.id) === id);
   function hadleSize(size: string) {
     setSize(size);
-    console.log(size);
   }
   function handleCount(props: PizzaItemProps) {
     dispatch(setCCount(id));

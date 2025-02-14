@@ -44,6 +44,7 @@
     padding: 10px 15px;
     font-size: 20px;
     background-color: rgb(241, 128, 35);
+    transition: all 0.3s ease;
     span {
       color: white;
       font-size: 18px;
@@ -55,9 +56,17 @@
   }
   .btnDiv {
     margin-left: auto;
+    display: flex;
+
+    button {
+      margin-right: 15px;
+    }
   }
   a {
     text-decoration: none;
     color: white;
   }
+}
+.splitBtn:hover {
+  background-color: rgb(238, 152, 82);
 }

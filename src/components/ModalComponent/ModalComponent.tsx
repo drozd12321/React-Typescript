@@ -1,4 +1,6 @@
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import styles from "./ModalComponent.module.scss";
+import { useLayoutEffect } from "react";
 
 const ModalComponent = ({
   active,
@@ -11,8 +13,10 @@ const ModalComponent = ({
   image: string;
   setActive: (value: boolean) => void;
 }) => {
+  const [anim] = useAutoAnimate();
   return (
     <div
+      ref={anim}
       className={active ? `${styles.item} ${styles.active}` : styles.item}
       onClick={() => {
         setActive(false);

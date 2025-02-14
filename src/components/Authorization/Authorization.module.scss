@@ -1,0 +1,31 @@
+.container {
+  background-color: white;
+  height: 600px;
+  width: 600px;
+  border-radius: 15px;
+  .item {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #eff3f2;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    justify-content: center;
+    margin: auto;
+    border-radius: 10px;
+
+    .itemChld {
+      transition: all 0.6s ease;
+      padding: 15px;
+      flex: 1;
+      padding: 10px;
+      cursor: pointer;
+      &.active {
+        border-radius: 10px;
+        background-color: rgb(223, 219, 219);
+        box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}

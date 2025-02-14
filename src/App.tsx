@@ -6,6 +6,7 @@ import { AppDispach, fetchData } from "./redux/pizzaSlice";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import PizzaItemCart from "./components/PizzaItemCart/PizzaItemCart";
+import Authorization from "./components/Authorization/Authorization";
 function App() {
   const [favorite, setFavorite] = useState(false);
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<CartFavorites />} />
         <Route path="/cartitem/:id" element={<PizzaItemCart />}></Route>
+        <Route path="/authorization" element={<Authorization />} />
       </Routes>
     </MyContext.Provider>
   );

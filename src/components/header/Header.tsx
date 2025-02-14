@@ -26,6 +26,9 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.btnDiv}>
+          <Link to="/authorization">
+            <button className={styles.splitBtn}>Войти</button>
+          </Link>
           <button className={styles.splitBtn}>
             <span>{state}</span>
             <span className={styles.separator}></span>
