@@ -4,8 +4,10 @@
   align-items: center;
   height: 70vh;
   margin: 0;
+  position: relative;
 }
 form {
+  position: fixed;
   display: flex;
   width: 300px;
   flex-direction: column;

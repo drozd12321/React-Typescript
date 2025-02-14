@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./SingUp.module.scss";
 const SingUp = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
-
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} action="submit">
@@ -16,7 +22,7 @@ const SingUp = () => {
             type="email"
             name="email"
             value={formData.email}
-            //  onChange={}
+            onChange={handleChange}
           />
         </div>
         <div className={styles.formfield}>
@@ -25,7 +31,7 @@ const SingUp = () => {
             type="password"
             name="password"
             value={formData.password}
-            //  onChange={}
+            onChange={handleChange}
           />
         </div>
         <button>Войти</button>
