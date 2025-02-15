@@ -3,7 +3,6 @@ import { MyContext } from "./data/Context";
 import CartFavorites from "./components/CartFavorites/CartFavorites";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PizzaItemCart from "./components/PizzaItemCart/PizzaItemCart";
 import Authorization from "./components/Authorization/Authorization";
 import Profil from "./components/Profil/Profil";

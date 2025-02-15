@@ -1,6 +1,6 @@
 import styles from "./Registr.module.scss";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectActive } from "../../redux/pizzaSlice";
 const Registr = ({ namee }: { namee: string }) => {
   const [anim] = useAutoAnimate();
