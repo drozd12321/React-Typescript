@@ -1,21 +1,45 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./SingUp.module.scss";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import Registr from "../../Registr/Registr";
+import { useNavigate } from "react-router";
+interface IProps {
+  email: string;
+  password: string;
+}
 const SingUp = () => {
-  interface IProps {
-    email: string;
-    password: string;
-  }
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IProps>();
-  const onSubmit = (data: IProps) => {
+  const onSubmit = async (data: IProps) => {
     console.log(data);
+    const res = await axios.get(
+      "https://e44567109e5642cf.mokky.dev/authorization"
+    );
+    const nameRegisr = res.data.some(
+      (item: IProps) => item.password === data.password
+    );
+    const registr = res.data.some((item: IProps) => item.email === data.email);
+    if (registr && nameRegisr) {
+      reset();
+      setActive(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+      return;
+    }
   };
+  const [active, setActive] = useState(false);
+  console.log(active);
   return (
     <div className={styles.formContainer}>
+      <Registr namee="воошли в аккаунт" active={active} setActive={setActive} />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formfield}>
           <label htmlFor="email">Email:</label>

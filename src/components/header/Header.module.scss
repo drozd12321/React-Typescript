@@ -37,11 +37,11 @@
   }
   .splitBtn {
     display: flex;
+    width: auto;
     align-items: center;
     border: none;
     border-radius: 10px;
     color: white;
-    padding: 10px 15px;
     font-size: 20px;
     background-color: rgb(241, 128, 35);
     transition: all 0.3s ease;
@@ -57,6 +57,7 @@
   .btnDiv {
     margin-left: auto;
     display: flex;
+    gap: 20px;
 
     button {
       margin-right: 15px;
