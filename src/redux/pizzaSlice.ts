@@ -1,4 +1,3 @@
-import { RootState } from "@reduxjs/toolkit/query";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { RootStateу } from "./priceSlice";

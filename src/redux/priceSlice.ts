@@ -1,6 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { PizzaItemProps, PriceState } from "../components/interfaces/interface";
-import { RootState } from "@reduxjs/toolkit/query";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PriceState } from "../components/interfaces/interface";
 import store from "./store";
 const initialState: PriceState = {
   favoritesPizza: [],

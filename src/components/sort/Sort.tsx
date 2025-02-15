@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Sort.module.scss";
 import { sorting } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPizza, setPizza } from "../../redux/pizzaSlice";
-import { b } from "motion/react-client";
-import PizzaItemFavor from "../PizzaItemFavor/PizzaItemFavor";
+
 import { PizzaItemProps } from "../interfaces/interface";
 const Sort = () => {
   const [sort, setSort] = useState("");

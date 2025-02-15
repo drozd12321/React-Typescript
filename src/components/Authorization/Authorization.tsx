@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Authorization.module.scss";
 import SingUp from "./SingUp/SingUp";
 import Auth from "./Auth/Auth";

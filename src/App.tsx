@@ -9,7 +9,6 @@ import Authorization from "./components/Authorization/Authorization";
 import Profil from "./components/Profil/Profil";
 function App() {
   const [favorite, setFavorite] = useState(false);
-  const [anim] = useAutoAnimate();
   return (
     <MyContext.Provider value={{ favorite, setFavorite }}>
       <Routes>

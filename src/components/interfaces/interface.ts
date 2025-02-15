@@ -1,5 +1,3 @@
-import { TypeValues } from "../../data/data";
-
 export type sizes = {
   [key: string]: string;
 };

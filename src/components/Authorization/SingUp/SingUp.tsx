@@ -1,4 +1,3 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./SingUp.module.scss";
 import { useForm } from "react-hook-form";
 import axios from "axios";

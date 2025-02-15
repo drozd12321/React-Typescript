@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Profil.module.scss";
 import { useSelector } from "react-redux";
 import { selectData } from "../../redux/profil";

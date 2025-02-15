@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CountArray, IProfil } from "../components/interfaces/interface";
+import { createSlice } from "@reduxjs/toolkit";
+import { IProfil } from "../components/interfaces/interface";
 import { RootStateу } from "./priceSlice";
 const initialState: IProfil = {
   email: "",

@@ -1,8 +1,7 @@
-import React from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import styles from "./PizzaItemFavor.module.scss";
-import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
+import { FavorPizza } from "../interfaces/interface";
 import {
   setDeleteFavoritPizza,
   setFavoritesPizza,

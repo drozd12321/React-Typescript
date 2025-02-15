@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Loader from "./Loader/Loader";
 import styles from "../App.module.scss";
 import CartFavorites from "./CartFavorites/CartFavorites";
@@ -13,11 +13,9 @@ import {
   selectDataLoader,
   selectLoading,
 } from "../redux/pizzaSlice";
-import { useNavigate, useLocation } from "react-router";
+
 const Home = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [favorite, setFavorite] = useState(false);
+  const [favorite] = useState(false);
   const loading = useSelector(selectLoading);
   const dispatch = useDispatch<AppDispach>();
   const dataLoader = useRef(false);
