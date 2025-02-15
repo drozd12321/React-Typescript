@@ -1,54 +1,39 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Auth.module.scss";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 const Auth = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  interface IProps {
+    name: string;
+    email: string;
+    password: string;
   }
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError("");
-    try {
-      const response = await axios.post(
-        "https://e44567109e5642cf.mokky.dev/authorization",
-        formData
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IProps>();
+  const onSubmit = (data: IProps) => {
+    console.log(data);
   };
   return (
     <div className={styles.formContainer}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formfield}>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            {...(register("email"), { required: true })}
           />
+          {errors.email && <p>{errors.password?.message}</p>}
         </div>
         <div className={styles.formfield}>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            {...(register("name"), { required: true, minLength: 3 })}
           />
         </div>
         <div className={styles.formfield}>
@@ -56,8 +41,7 @@ const Auth = () => {
           <input
             type="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            {...(register("password"), { required: true, minLength: 6 })}
           />
         </div>
         <button type="submit">Войти</button>
