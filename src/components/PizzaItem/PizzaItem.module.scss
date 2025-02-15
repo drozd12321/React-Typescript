@@ -9,6 +9,7 @@
   margin: 15px;
   background-color: rgb(245, 245, 244);
   border-radius: 10px;
+  transition: all 0.3s ease;
   .pizzaImg {
     border-radius: 10px;
     img {
@@ -81,4 +82,8 @@
     color: gray;
     pointer-events: none;
   }
+}
+.containerPizza:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
 }
