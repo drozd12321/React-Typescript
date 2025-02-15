@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { selectPizza } from "../../redux/pizzaSlice";
 import { IoMdClose } from "react-icons/io";
 import logo from "../../assets/img/pizza-logo.svg";
-import { p } from "motion/react-client";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Link } from "react-router-dom";
 import { selectedCount, setCCount } from "../../redux/countSlice";
 import { useState } from "react";
@@ -12,6 +12,7 @@ import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
 import { setFavoritesPizza, setPriceTotal } from "../../redux/priceSlice";
 
 const PizzaItemCart = () => {
+  const [anim] = useAutoAnimate();
   const count = useSelector(selectedCount);
   const [size, setSize] = useState<string>();
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const PizzaItemCart = () => {
   }
   if (!pizza) return <div>Нету такой пиццы</div>;
   return (
-    <div className={styles.container}>
+    <div ref={anim} className={styles.container}>
       <div className={styles.chld}>
         <img src={logo} alt="" />
         <h2>Пицца</h2>

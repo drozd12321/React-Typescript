@@ -13,6 +13,7 @@ const Pizza = () => {
     if (categ === "Все") {
       return dataF;
     } else {
+      console.log("sd");
       return dataF.filter((pz) => pz.category === categ);
     }
   };

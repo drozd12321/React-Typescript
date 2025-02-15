@@ -4,13 +4,16 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Registr from "../../Registr/Registr";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { setActiv } from "../../../redux/pizzaSlice";
+import { setData } from "../../../redux/profil";
 interface IProps {
   email: string;
   password: string;
 }
 const SingUp = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -28,18 +31,17 @@ const SingUp = () => {
     const registr = res.data.some((item: IProps) => item.email === data.email);
     if (registr && nameRegisr) {
       reset();
-      setActive(true);
       setTimeout(() => {
         navigate("/");
       }, 3000);
+      dispatch(setActiv(true));
+      dispatch(setData(data));
       return;
     }
   };
-  const [active, setActive] = useState(false);
-  console.log(active);
   return (
     <div className={styles.formContainer}>
-      <Registr namee="воошли в аккаунт" active={active} setActive={setActive} />
+      <Registr namee="воошли в аккаунт" />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formfield}>
           <label htmlFor="email">Email:</label>

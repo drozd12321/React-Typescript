@@ -30,7 +30,7 @@ const CartFavorites = () => {
           <IoMdClose />
         </Link>
       </div>
-      <div className={styles.favoritePizza}>
+      <div ref={anin} className={styles.favoritePizza}>
         {statePizzaFavorites
           ? statePizzaFavorites.map((piz, index) => (
               <PizzaItemFavor key={index} {...piz} />

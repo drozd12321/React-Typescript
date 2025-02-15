@@ -7,19 +7,30 @@ import Category from "./category/Category";
 import Pizza from "./Pizza/Pizza";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispach, fetchData, selectLoading } from "../redux/pizzaSlice";
+import {
+  AppDispach,
+  fetchData,
+  selectDataLoader,
+  selectLoading,
+} from "../redux/pizzaSlice";
+import { useNavigate, useLocation } from "react-router";
 const Home = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [favorite, setFavorite] = useState(false);
   const loading = useSelector(selectLoading);
   const dispatch = useDispatch<AppDispach>();
   const dataLoader = useRef(false);
   const [anim] = useAutoAnimate();
+  const stateDataLoad = useSelector(selectDataLoader);
+  const stateLoading = useSelector(selectLoading);
   useEffect(() => {
-    if (!dataLoader.current) {
+    if (!stateDataLoad && !stateLoading) {
       dispatch(fetchData());
       dataLoader.current = true;
     }
-  }, [dataLoader]);
+  }, []);
+
   return (
     <>
       {loading ? (

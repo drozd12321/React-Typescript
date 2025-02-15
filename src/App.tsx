@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PizzaItemCart from "./components/PizzaItemCart/PizzaItemCart";
 import Authorization from "./components/Authorization/Authorization";
+import Profil from "./components/Profil/Profil";
 function App() {
   const [favorite, setFavorite] = useState(false);
   const [anim] = useAutoAnimate();
@@ -16,6 +17,7 @@ function App() {
         <Route path="/favorites" element={<CartFavorites />} />
         <Route path="/cartitem/:id" element={<PizzaItemCart />}></Route>
         <Route path="/authorization" element={<Authorization />} />
+        <Route path="/profil" element={<Profil />} />
       </Routes>
     </MyContext.Provider>
   );

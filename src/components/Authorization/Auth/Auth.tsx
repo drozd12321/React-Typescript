@@ -2,12 +2,15 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Auth.module.scss";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Registr from "../../Registr/Registr";
+import { useNavigate } from "react-router";
 const Auth = () => {
   interface IProps {
     name: string;
     email: string;
     password: string;
   }
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -42,10 +45,12 @@ const Auth = () => {
         }
       );
       reset();
+      return;
     }
   };
   return (
     <div className={styles.formContainer}>
+      <Registr namee="успешно зарегестрированы" />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formfield}>
           <label htmlFor="email">Email:</label>
