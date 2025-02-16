@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://drozd12321.github.io/React-Typescript/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
