@@ -38,7 +38,7 @@ const PizzaItemCart = () => {
       <div className={styles.chld}>
         <img src={logo} alt="" />
         <h2>Пицца</h2>
-        <Link to="/">
+        <Link to="/React-Typescript">
           <IoMdClose />
         </Link>
       </div>

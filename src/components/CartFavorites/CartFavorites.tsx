@@ -24,7 +24,7 @@ const CartFavorites = () => {
 
         <Link
           className={styles.icon}
-          to="/"
+          to="/React-Typescript"
           onClick={() => console.log("sdsd")}
         >
           <IoMdClose />

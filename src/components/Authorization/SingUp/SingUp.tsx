@@ -31,7 +31,7 @@ const SingUp = () => {
     if (registr && nameRegisr) {
       reset();
       setTimeout(() => {
-        navigate("/");
+        navigate("/React-Typescript");
       }, 3000);
       dispatch(setActiv(true));
       dispatch(setData(data));

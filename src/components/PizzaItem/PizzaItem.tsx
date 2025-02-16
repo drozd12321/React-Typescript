@@ -47,7 +47,7 @@ const PizzaItem = forwardRef((props: PizzaItemProps) => {
       />
       <div className={styles.pizzaImg}>
         <img src={props.image_url} alt="" onClick={toggleModal} />
-        <Link to={`/cartitem/${props.id}`}>
+        <Link to={`/React-Typescript/cartitem/${props.id}`}>
           <p>{props.name}</p>
         </Link>
       </div>

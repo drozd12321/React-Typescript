@@ -24,7 +24,7 @@ const Profil = () => {
         </div>
       </div>
       <div>
-        <Link to="/">
+        <Link to="/React-Typescript">
           <h2>Бегом за пиццой</h2>
         </Link>
       </div>

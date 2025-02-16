@@ -33,13 +33,13 @@ const Header = () => {
         </div>
         <div ref={anim} className={styles.btnDiv}>
           {stateActive ? (
-            <Link to="/profil">
+            <Link to="/React-Typescript/profil">
               <button className={styles.splitBtn}>
                 <IoHome />
               </button>
             </Link>
           ) : (
-            <Link to="/authorization">
+            <Link to="/React-Typescript/authorization">
               <button className={styles.splitBtn}>Войти</button>
             </Link>
           )}
@@ -48,7 +48,7 @@ const Header = () => {
             <span className={styles.separator}></span>
             <span>
               {" "}
-              <Link to="/favorites">
+              <Link to="/React-Typescript/favorites">
                 <SlBasket
                   onClick={() => {
                     handleCartFavorite();
