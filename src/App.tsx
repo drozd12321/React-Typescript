@@ -11,11 +11,17 @@ function App() {
   return (
     <MyContext.Provider value={{ favorite, setFavorite }}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/favorites" element={<CartFavorites />} />
-        <Route path="/cartitem/:id" element={<PizzaItemCart />}></Route>
-        <Route path="/authorization" element={<Authorization />} />
-        <Route path="/profil" element={<Profil />} />
+        <Route path="/React-Typescript" element={<Home />} />
+        <Route path="/React-Typescript/favorites" element={<CartFavorites />} />
+        <Route
+          path="/React-Typescript/cartitem/:id"
+          element={<PizzaItemCart />}
+        ></Route>
+        <Route
+          path="/React-Typescript/authorization"
+          element={<Authorization />}
+        />
+        <Route path="/React-Typescript/profil" element={<Profil />} />
       </Routes>
     </MyContext.Provider>
   );
