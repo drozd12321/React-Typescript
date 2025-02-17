@@ -6,6 +6,7 @@ import pizzaLogo from "../../assets/img/pizza-logo.svg";
 import styles from "./Header.module.scss";
 import { MyContext } from "../../data/Context";
 import { Link } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 const Header = () => {
   const state = useSelector(selectedPrice);
   const { favorite } = useContext(MyContext);
