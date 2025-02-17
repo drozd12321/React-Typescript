@@ -6,6 +6,8 @@ import pizzaLogo from "../../assets/img/pizza-logo.svg";
 import styles from "./Header.module.scss";
 import { MyContext } from "../../data/Context";
 import { Link } from "react-router-dom";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { selectActive } from "../../redux/pizzaSlice";
 const Header = () => {
   const state = useSelector(selectedPrice);
   const { favorite } = useContext(MyContext);
