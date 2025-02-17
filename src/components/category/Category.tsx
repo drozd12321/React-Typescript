@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Category.module.scss";
 import Sort from "../sort/Sort";
 import { category } from "../../data/data";
 import { setCategory } from "../../redux/pizzaSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 const Category = () => {
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(

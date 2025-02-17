@@ -1,5 +1,3 @@
-import { TypeValues } from "../../data/data";
-
 export type sizes = {
   [key: string]: string;
 };
@@ -43,6 +41,7 @@ export interface PizzaState {
   selectCategory: string;
   isLoading: boolean;
   dataLoader: boolean;
+  isActive: boolean;
 }
 export interface Count {
   count: number;
@@ -54,4 +53,8 @@ export interface CountArray {
 export interface ModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
+}
+export interface IProfil {
+  email: string;
+  password: string;
 }

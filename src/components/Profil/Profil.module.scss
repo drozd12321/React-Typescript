@@ -1,0 +1,45 @@
+.container {
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 10px;
+  width: 800px;
+  position: relative;
+  justify-content: space-between;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  .item {
+    display: flex;
+    margin-left: 30px;
+    // float: left;
+    gap: 70px;
+    .inf {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      p {
+        padding: 0;
+        font-size: 25px;
+      }
+      .infChld {
+        background-color: rgb(225, 228, 228);
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+  img {
+    height: 250px;
+  }
+  h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+    transition: all 0.2s ease;
+  }
+  h2:hover {
+    color: rgb(201, 199, 196);
+    transform: translateY(-10px);
+  }
+}

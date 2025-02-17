@@ -1,4 +1,3 @@
-import React from "react";
 import cart from "../../assets/img/empty-cart.png";
 import styles from "./CartZero.module.scss";
 const CartZero = () => {

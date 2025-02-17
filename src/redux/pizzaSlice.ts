@@ -1,4 +1,3 @@
-import { RootState } from "@reduxjs/toolkit/query";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { RootStateу } from "./priceSlice";
@@ -32,6 +31,7 @@ const initialState: PizzaState = {
   selectCategory: "Все",
   isLoading: false,
   dataLoader: false,
+  isActive: false,
 };
 
 const pizzaSlice = createSlice({
@@ -45,6 +45,9 @@ const pizzaSlice = createSlice({
     setCategory(state, action) {
       return { ...state, selectCategory: action.payload };
     },
+    setActiv(state, action) {
+      return { ...state, isActive: action.payload };
+    },
   },
 
   extraReducers: (builder) => {
@@ -56,9 +59,11 @@ const pizzaSlice = createSlice({
     });
     builder.addCase(fetchData.pending, (state) => {
       state.isLoading = true;
+      state.dataLoader = false;
     });
     builder.addCase(fetchData.rejected, (state) => {
       state.isLoading = true;
+      state.dataLoader = false;
     });
   },
 });
@@ -67,5 +72,8 @@ export const selectPizza = (state: RootStateу) => state.pizza.pizza;
 export type AppDispach = typeof store.dispatch;
 export const selectPizzaFavoriters = (state: RootStateу) => state.pizza;
 export const selectLoading = (state: RootStateу) => state.pizza.isLoading;
-export const { setPizza, setCategory } = pizzaSlice.actions;
+export const { setPizza, setCategory, setActiv } = pizzaSlice.actions;
 export const selectCategory = (state: RootStateу) => state.pizza.selectCategory;
+export const selectActive = (state: RootStateу) => state.pizza.isActive;
+export const selectDataLoader = (state: RootStateу) => state.pizza.dataLoader;
+export const selectLoader = (state: RootStateу) => state.pizza.isLoading;

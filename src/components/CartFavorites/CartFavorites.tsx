@@ -24,13 +24,13 @@ const CartFavorites = () => {
 
         <Link
           className={styles.icon}
-          to="/"
+          to="/React-Typescript"
           onClick={() => console.log("sdsd")}
         >
           <IoMdClose />
         </Link>
       </div>
-      <div className={styles.favoritePizza}>
+      <div ref={anin} className={styles.favoritePizza}>
         {statePizzaFavorites
           ? statePizzaFavorites.map((piz, index) => (
               <PizzaItemFavor key={index} {...piz} />

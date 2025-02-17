@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Auth.module.scss";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Registr from "../../Registr/Registr";
 const Auth = () => {
   interface IProps {
     name: string;
@@ -30,22 +30,22 @@ const Auth = () => {
       reset();
       return;
     } else {
-      const res = await fetch(
-        "https://e44567109e5642cf.mokky.dev/authorization",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      await fetch("https://e44567109e5642cf.mokky.dev/authorization", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
       reset();
+      return;
     }
   };
   return (
     <div className={styles.formContainer}>
+      <Registr namee="успешно зарегестрированы" />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formfield}>
           <label htmlFor="email">Email:</label>

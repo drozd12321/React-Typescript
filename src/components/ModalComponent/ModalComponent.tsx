@@ -1,6 +1,5 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import styles from "./ModalComponent.module.scss";
-import { useLayoutEffect } from "react";
 
 const ModalComponent = ({
   active,

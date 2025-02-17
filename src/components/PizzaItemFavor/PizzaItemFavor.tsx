@@ -1,17 +1,18 @@
-import React from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import styles from "./PizzaItemFavor.module.scss";
-import { FavorPizza, PizzaItemProps } from "../interfaces/interface";
+import { FavorPizza } from "../interfaces/interface";
 import {
   setDeleteFavoritPizza,
   setFavoritesPizza,
   setMinus,
   setPriceTotal,
 } from "../../redux/priceSlice";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useDispatch } from "react-redux";
 import { setCCount, setDelCount, setReset } from "../../redux/countSlice";
 const PizzaItemFavor = (props: FavorPizza) => {
+  const [anim] = useAutoAnimate();
   const dispatch = useDispatch();
   function handleDeleteFavoritePizza(pr: FavorPizza) {
     dispatch(setDeleteFavoritPizza(pr));
@@ -30,7 +31,7 @@ const PizzaItemFavor = (props: FavorPizza) => {
     return "";
   }
   return (
-    <div className={styles.item}>
+    <div ref={anim} className={styles.item}>
       <div className={styles.imgCont}>
         <img src={props.image_url} alt="" />
       </div>

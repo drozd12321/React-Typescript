@@ -11,7 +11,7 @@ import {
 } from "../../redux/priceSlice";
 import ModalComponent from "../ModalComponent/ModalComponent.tsx";
 import { Link } from "react-router-dom";
-const PizzaItem = forwardRef((props: PizzaItemProps, ref) => {
+const PizzaItem = forwardRef((props: PizzaItemProps) => {
   const ccount = useSelector(selectedCount);
   const curentItem = ccount.find((item) => item.id === props.id)?.count || 0;
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -47,7 +47,7 @@ const PizzaItem = forwardRef((props: PizzaItemProps, ref) => {
       />
       <div className={styles.pizzaImg}>
         <img src={props.image_url} alt="" onClick={toggleModal} />
-        <Link to={`/cartitem/${props.id}`}>
+        <Link to={`/React-Typescript/cartitem/${props.id}`}>
           <p>{props.name}</p>
         </Link>
       </div>
@@ -66,7 +66,7 @@ const PizzaItem = forwardRef((props: PizzaItemProps, ref) => {
           ))}
         </div>
         <div className={styles.size}>
-          {Object.entries(props.sizes).map(([key, size]) => (
+          {Object.entries(props.sizes).map(([key]) => (
             <div
               key={key}
               className={`${styles.sizeChld} ${

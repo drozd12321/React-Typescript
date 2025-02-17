@@ -1,4 +1,3 @@
-import React, { useContext, useEffect, useState } from "react";
 import PizzaItem from "../PizzaItem/PizzaItem";
 import styles from "./Pizza.module.scss";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
